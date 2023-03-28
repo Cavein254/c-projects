@@ -22,5 +22,5 @@ int main (void)
 {
     int array[]= {222,31,22,17,34,21,42,62,5,10};
     int min = min_val(array, 10);
-    printf("%d \n", min);
+    printf("The minimum value of the array is: %d \n", min);
 }
