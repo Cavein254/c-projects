@@ -13,12 +13,12 @@ void *heap_alloc(size_t size)
     assert(heap_size + size  <=CAPACITY);
     void *result = heap + heap_size;
     heap_size += size;
-
-    return NULL;
+    return result;
 }
 
 void heap_free(void *ptr)
 {
+    (void) ptr;
     assert(false && "Not implemented ");
 }
 
@@ -30,10 +30,19 @@ void collect ()
 int main () 
 {
     char *root = heap_alloc(26);
+    printf("Memory of root %p \n" , root);
     for (int i = 0; i < 26; i++)
     {
         root[i] = i + 'A';
     }
 
+    for (int j = 0; j < 26; j++) 
+    {
+        printf("%c", root[j]);
+
+    }
+    printf("%c", '\n');
     return (0);
+
+    heap_free(root);
 }
