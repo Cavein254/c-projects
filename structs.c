@@ -1,7 +1,7 @@
  #include <stdlib.h>
  #include <stdio.h>
 
- struct user 
+ struct User 
  {
     char *name;
     char *email;
@@ -12,6 +12,12 @@
  struct User *new_user(char *name, char *email, int age)
  {
     struct User *user;
+    user = malloc(sizeof(struct User));
+    if (user == NULL)
+        return (NULL);
+    user->name = name;
+    user->email = email;
+    user->age = age;
     return user;
  }
 
