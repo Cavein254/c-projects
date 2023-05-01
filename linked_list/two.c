@@ -43,6 +43,14 @@ bool is_empty(Queue *queue)
     return (queue->size == 0);
 }
 
+int peek(Queue *queue, bool *status)
+{
+    if (is_empty(queue))
+    {
+        *status = false;
+    }
+}
+
 void enqueue(Queue *queue, int value);
 int dequeue(Queue *queue, bool *status);
 void destroy_queue(Queue *queue);
