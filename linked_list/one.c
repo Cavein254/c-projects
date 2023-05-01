@@ -59,3 +59,20 @@ void insertAtBegin(struct Node** head, int new_data)
     (*head) = new;
 }
 
+void insertAtEnd(struct Node** head, int new_data)
+{
+    struct Node* new = (struct Node*)malloc(sizeof(struct Node));
+    struct Node* lastnode = *head;
+
+    new->data = new_data;
+    new->next = NULL;
+
+    if(*head == NULL) {
+        (*head) = new;
+        return;
+    }
+
+    while (lastnode -> next != NULL) lastnode = lastnode->next;
+    lastnode->next = new;
+    return;
+}
