@@ -38,6 +38,11 @@ int size(Queue *queue)
    return queue->size; 
 }
 
+bool is_empty(Queue *queue)
+{
+    return (queue->size == 0);
+}
+
 void enqueue(Queue *queue, int value);
 int dequeue(Queue *queue, bool *status);
 void destroy_queue(Queue *queue);
