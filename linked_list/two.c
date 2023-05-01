@@ -97,12 +97,20 @@ int dequeue(Queue *queue, bool *status)
     {
         queue->head = queue->head->next;
     }
-    
-    
+        
     free(oldHead);
-
     queue->size--;
 
     return value;
 }
-void destroy_queue(Queue *queue);
+void destroy_queue(Queue *queue)
+{
+    Node *currentnode = queue->head;
+
+    while (currentnode != NULL)
+    {
+        Node *temp = currentnode;
+        currentnode = currentnode->next;
+        free(temp);
+    }
+}
