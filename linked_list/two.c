@@ -33,6 +33,11 @@ Queue *create_queue()
     return queue;
 }
 
+int size(Queue *queue)
+{
+   return queue->size; 
+}
+
 void enqueue(Queue *queue, int value);
 int dequeue(Queue *queue, bool *status);
 void destroy_queue(Queue *queue);
