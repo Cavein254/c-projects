@@ -3,6 +3,8 @@
 
 void display();
 void insertAtBegin(struct Node** head, int new_data);
+void insertAtEnd(struct Node** head, int new_data);
+void insertionAfterNode(struct Node* prev_node, int new_data);
 struct Node {
     int data;
     struct Node* next;
@@ -75,4 +77,17 @@ void insertAtEnd(struct Node** head, int new_data)
     while (lastnode -> next != NULL) lastnode = lastnode->next;
     lastnode->next = new;
     return;
+}
+
+void insertionAfterNode(struct Node* prev_node, int new_data)
+{
+    if (prev_node == NULL) {
+        printf("Given previous node cannot be NULL");
+        return;
+    }
+
+    struct Node* new = (struct Node*)malloc(sizeof(struct Node));
+    new->data = new_data;
+    new->next = prev_node->next;
+    prev_node->next = new;
 }
