@@ -2,8 +2,8 @@
 #include <stdlib.h>
 
 void display();
-void insertAtBegin(struct Node** head, int new_data);
-void insertAtEnd(struct Node** head, int new_data);
+void insertAtBegin(struct Node* head, int new_data);
+void insertAtEnd(struct Node* head, int new_data);
 void insertionAfterNode(struct Node* prev_node, int new_data);
 struct Node {
     int data;
@@ -37,6 +37,18 @@ int main ()
     fifth->next = NULL;
 
     display(first);
+
+    struct Node* head = NULL;
+
+    insertAtEnd(&head, 60);
+    insertAtEnd(&head, 70);
+    insertAtEnd(&head, 80);
+    insertAtBegin(&head, 9);
+    insertAtBegin(&head, 8);
+    insertionAfterNode(head->next, 7);
+    insertionAfterNode(head->next, 6);
+
+    display(head);
 
     return 0;
 
