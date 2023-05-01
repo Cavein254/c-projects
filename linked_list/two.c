@@ -48,9 +48,32 @@ int peek(Queue *queue, bool *status)
     if (is_empty(queue))
     {
         *status = false;
+        return NULL;
     }
+
+    *status = true;
+    return queue->head->value;
 }
 
-void enqueue(Queue *queue, int value);
+void enqueue(Queue *queue, int value)
+{
+    Node *newNode = malloc(sizeof(Node));
+    newNode->value = value;
+    newNode->next = NULL;
+
+    if (is_empty(queue))
+    {
+        queue->head = newNode;
+        queue->tail = newNode;
+    }
+    else
+    {
+        queue->tail->next = newNode;
+        queue->tail = newNode;
+    }
+
+    queue->size++;
+
+}
 int dequeue(Queue *queue, bool *status);
 void destroy_queue(Queue *queue);
