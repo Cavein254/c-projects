@@ -73,7 +73,36 @@ void enqueue(Queue *queue, int value)
     }
 
     queue->size++;
-
 }
-int dequeue(Queue *queue, bool *status);
+
+int dequeue(Queue *queue, bool *status)
+{
+    if (is_empty(queue))
+    {
+        *status = false;
+        return NULL;
+    }
+
+    *status = true;
+    int value = queue->head->value;
+    //delete node
+    Node *oldHead = queue->head;
+
+    if (queue-size == 1)
+    {
+        queue->head = NULL;
+        queue->tail = NULL;
+    }
+    else
+    {
+        queue->head = queue->head->next;
+    }
+    
+    
+    free(oldHead);
+
+    queue->size--;
+
+    return value;
+}
 void destroy_queue(Queue *queue);
