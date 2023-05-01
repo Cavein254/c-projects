@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 void display();
-
+void insertAtBegin(struct Node** head, int new_data);
 struct Node {
     int data;
     struct Node* next;
@@ -35,14 +35,6 @@ int main ()
     fifth->next = NULL;
 
     display(first);
-    printf("||||||||||||||||||||||||||||||");
-    display(second);
-    printf("||||||||||||||||||||||||||||||");
-    display(third);
-    printf("||||||||||||||||||||||||||||||");
-    display(fourth);
-    printf("||||||||||||||||||||||||||||||");
-    display(fifth);
 
     return 0;
 
@@ -56,3 +48,14 @@ void display(struct Node* ptr)
         ptr = ptr->next;
     }
 }
+
+void insertAtBegin(struct Node** head, int new_data)
+{
+    struct Node* new = (struct Node*)malloc(sizeof(struct Node));
+
+    new->data = new_data;
+    new->next = (*head);
+
+    (*head) = new;
+}
+
