@@ -22,3 +22,17 @@ int peek(Queue *queue, bool *status);
 void enqueue(Queue *queue, int value);
 int dequeue(Queue *queue, bool *status);
 void destroy_queue(Queue *queue);
+
+Queue *create_queue()
+{
+    Queue *queue = malloc(sizeof(Queue));
+    queue ->head = NULL;
+    queue->tail = NULL;
+    queue->size = 0;
+
+    return queue;
+}
+
+void enqueue(Queue *queue, int value);
+int dequeue(Queue *queue, bool *status);
+void destroy_queue(Queue *queue);
