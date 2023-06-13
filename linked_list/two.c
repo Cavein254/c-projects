@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 typedef struct Node
 {
@@ -35,7 +36,7 @@ Queue *create_queue()
 
 int size(Queue *queue)
 {
-   return queue->size; 
+    return queue->size;
 }
 
 bool is_empty(Queue *queue)
@@ -88,7 +89,7 @@ int dequeue(Queue *queue, bool *status)
     //delete node
     Node *oldHead = queue->head;
 
-    if (queue-size == 1)
+    if (queue->size == 1)
     {
         queue->head = NULL;
         queue->tail = NULL;
@@ -113,4 +114,6 @@ void destroy_queue(Queue *queue)
         currentnode = currentnode->next;
         free(temp);
     }
+
+    free(queue);
 }
